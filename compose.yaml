@@ -1,10 +1,12 @@
 services:
     microsoft-rewards-script:
-        # 本地构建本项目代码（V4-china 国内适配版）。
-        # ghcr.io/thenetsky/... 是原作者 TheNetsky 的官方镜像，跑的是原版代码，
-        # 不含本项目的国内适配（中国热搜 / PushPlus 等）。
-        build: .
-        image: microsoft-rewards-script:china
+        # 直接拉取本 fork 通过 GitHub Actions 构建并推送到 GHCR 的镜像
+        # （V4-china 国内适配版：中国热搜 / PushPlus / ClawBot / 防风控默认值等）。
+        # 镜像地址：ghcr.io/wk0qtpzoprpo/microsoft-rewards-script
+        #
+        # 如果你改了本地代码想自己构建镜像，把下面 image: 一行注释掉，
+        # 改回 `build: .` 即可（同时可保留 image: 给本地构建后的镜像打 tag）。
+        image: ghcr.io/wk0qtpzoprpo/microsoft-rewards-script:latest
         container_name: microsoft-rewards-script
         restart: unless-stopped
         volumes:
