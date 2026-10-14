@@ -9,6 +9,7 @@ on:
       - ".prettierrc"
       - "eslint.config.mjs"
       - ".github/workflows/format-*.yml"
+      - "compose.yaml"
   pull_request:
     branches: [V4-china]
   workflow_dispatch:
